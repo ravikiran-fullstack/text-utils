@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const About = () => {
-  const darkModeStyle = { color: "black", backgroundColor: "white" };
+  // const darkModeStyle = { color: "black", backgroundColor: "white" };
   const [darkMode, setDarkMode] = useState({
     color: "black",
     backgroundColor: "white",
