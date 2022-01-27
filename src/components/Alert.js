@@ -1,9 +1,9 @@
 import React from "react";
 
 const Alert = (props) => {
-  console.log(`props -----------------${props.alert}`);
+  // console.log(`props -----------------${props.alert}`);
   const capitalize = (word) => {
-    console.log("word", word);
+    // console.log("word", word);
     const lower = word.toLowerCase();
     return lower.charAt(0).toUpperCase() + lower.slice(1);
   };

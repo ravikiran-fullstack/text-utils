@@ -27,18 +27,24 @@ const TextForm = ({ heading, textArea, setTextArea, mode, showAlert }) => {
   };
 
   const handleOnTextChange = (event) => {
-    console.log("on change");
+    // console.log("event.target.value", event.target.value);
     setTextArea(event.target.value);
-    setWordsCount(countWords(textArea));
-    setCharsCount(countChars(textArea));
+
+    setWordsCount(countWords(event.target.value));
+    setCharsCount(countChars(event.target.value));
   };
 
   const countWords = (str) => {
-    return str.split(" ").length;
+    console.log(str);
+    if (str === "") {
+      return 0;
+    }
+    return str.trim().split(" ").length;
+    // return str.trim().split(/\s+/).length;
   };
 
   const countChars = (str) => {
-    return str.split(" ").join("").length + 1;
+    return str.split(" ").join("").length;
   };
 
   return (

@@ -36,17 +36,35 @@ const Navbar = ({ title, mode, toggleMode }) => {
               </a>
             </li>
           </ul>
-          {/* <form className='d-flex'>
-            <input
+          <form className='d-flex'>
+            {/* <input
               className='form-control me-2'
               type='search'
               placeholder='Search'
               aria-label='Search'
-            />
-            <button className='btn btn-primary' type='submit'>
-              Search
+            /> */}
+            <button
+              className='btn btn-danger'
+              style={{ marginRight: "5px" }}
+              type='button'
+            >
+              Red Theme
             </button>
-          </form> */}
+            <button
+              className='btn btn-primary'
+              style={{ marginRight: "5px" }}
+              type='button'
+            >
+              Blue Theme
+            </button>
+            <button
+              className='btn btn-success'
+              style={{ marginRight: "5px" }}
+              type='button'
+            >
+              Green Theme
+            </button>
+          </form>
 
           <div
             className={`form-check form-switch text-${mode ? "light" : "dark"}`}
