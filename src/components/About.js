@@ -10,7 +10,7 @@ const About = () => {
   const handleDarkMode = () => {
     console.log("handleDarkMode");
     if (darkMode.color === "black") {
-      setDarkMode({ color: "white", backgroundColor: "black" });
+      setDarkMode({ color: "white", backgroundColor: "#0f4c89" });
     } else {
       setDarkMode({ color: "black", backgroundColor: "white" });
     }
