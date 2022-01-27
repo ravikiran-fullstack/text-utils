@@ -6,6 +6,8 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import Alert from "./components/Alert";
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 function App() {
   const [textArea, setTextArea] = useState("");
 
@@ -37,22 +39,31 @@ function App() {
   };
   return (
     <>
-      <Navbar
-        title='Text Utilities'
-        mode={darkMode}
-        toggleMode={toggleMode}
-      ></Navbar>
-      <Alert alert={alert}></Alert>
-      <div className='container my-3'>
-        <TextForm
-          heading='Enter the text to analyze'
-          textArea={textArea}
-          setTextArea={setTextArea}
+      <Router>
+        <Navbar
+          title='Text Utilities'
           mode={darkMode}
-          showAlert={showAlert}
-        ></TextForm>
-        {/* <About></About> */}
-      </div>
+          toggleMode={toggleMode}
+        ></Navbar>
+        <Alert alert={alert}></Alert>
+        <div className='container my-3'>
+          <Switch>
+            <Route exact path='/about'>
+              <About></About>
+            </Route>
+
+            <Route exact path='/'>
+              <TextForm
+                heading='Enter the text to analyze'
+                textArea={textArea}
+                setTextArea={setTextArea}
+                mode={darkMode}
+                showAlert={showAlert}
+              ></TextForm>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }
