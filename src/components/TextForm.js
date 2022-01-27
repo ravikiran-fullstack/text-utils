@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 
-const TextForm = ({ heading, textArea, setTextArea }) => {
+const TextForm = ({ heading, textArea, setTextArea, mode }) => {
   const [wordsCount, setWordsCount] = useState(0);
   const [charsCount, setCharsCount] = useState(0);
   const ref = useRef(null);
@@ -40,7 +40,12 @@ const TextForm = ({ heading, textArea, setTextArea }) => {
 
   return (
     <>
-      <div className='mb-3'>
+      <div
+        className='mb-3'
+        style={{
+          color: mode ? "white" : "black",
+        }}
+      >
         <label htmlFor='exampleFormControlTextarea1' className='form-label'>
           {heading}
         </label>
@@ -52,6 +57,10 @@ const TextForm = ({ heading, textArea, setTextArea }) => {
           value={textArea}
           onChange={handleOnTextChange}
           ref={ref}
+          style={{
+            backgroundColor: mode ? "gray" : "white",
+            color: mode ? "white" : "black",
+          }}
         ></textarea>
         <button className='btn btn-primary my-3' onClick={handleUpClick}>
           Convert to uppercase
@@ -63,14 +72,20 @@ const TextForm = ({ heading, textArea, setTextArea }) => {
           Reset
         </button>
       </div>
-      <div className='container my-3'>
+      <div
+        className='container my-3'
+        style={{
+          color: mode ? "white" : "black",
+        }}
+      >
         <h2>Your Text summary</h2>
         <p>
           {wordsCount} words, and {charsCount} characters
         </p>
         <p>{Number(wordsCount * 0.008).toFixed(2)} Minutes read</p>
         <h3>Preview</h3>
-        <p>{textArea}</p>
+        {textArea && <p>{textArea}</p>}
+        {!textArea && <p>Enter your text above to preview it here</p>}
       </div>
     </>
   );
