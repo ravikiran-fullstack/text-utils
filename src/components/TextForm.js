@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 
-const TextForm = ({ heading, textArea, setTextArea, mode }) => {
+const TextForm = ({ heading, textArea, setTextArea, mode, showAlert }) => {
   const [wordsCount, setWordsCount] = useState(0);
   const [charsCount, setCharsCount] = useState(0);
   const ref = useRef(null);
@@ -9,11 +9,13 @@ const TextForm = ({ heading, textArea, setTextArea, mode }) => {
   const handleUpClick = () => {
     setTextArea(textArea.toUpperCase());
     ref?.current?.focus?.();
+    showAlert("Text converted to uppercase", "success");
   };
 
   const handleLowClick = () => {
     setTextArea(textArea.toLowerCase());
     ref?.current?.focus?.();
+    showAlert("Text converted to lowercase", "success");
   };
 
   const handleReset = () => {
@@ -21,6 +23,7 @@ const TextForm = ({ heading, textArea, setTextArea, mode }) => {
     setWordsCount(0);
     setCharsCount(0);
     ref?.current?.focus?.();
+    showAlert("Text cleared", "success");
   };
 
   const handleOnTextChange = (event) => {
