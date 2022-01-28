@@ -39,7 +39,13 @@ const TextForm = ({ heading, textArea, setTextArea, mode, showAlert }) => {
     if (str === "") {
       return 0;
     }
-    return str.trim().split(" ").length;
+    // return str.trim().split(" ").length;
+    // return str.split(" ").filter((ele) => {
+    //   return ele.length !== 0;
+    // }).length;
+    return str.split(/\s+/).filter((ele) => {
+      return ele.length !== 0;
+    }).length;
     // return str.trim().split(/\s+/).length;
   };
 
@@ -55,9 +61,9 @@ const TextForm = ({ heading, textArea, setTextArea, mode, showAlert }) => {
           color: mode ? "white" : "black",
         }}
       >
-        <label htmlFor='exampleFormControlTextarea1' className='form-label'>
+        <h3 htmlFor='exampleFormControlTextarea1' className='form-label mb-4'>
           {heading}
-        </label>
+        </h3>
         <textarea
           className='form-control'
           id='exampleFormControlTextarea1'
@@ -67,14 +73,22 @@ const TextForm = ({ heading, textArea, setTextArea, mode, showAlert }) => {
           onChange={handleOnTextChange}
           ref={ref}
           style={{
-            backgroundColor: mode ? "gray" : "white",
+            backgroundColor: mode ? "#213061" : "white",
             color: mode ? "white" : "black",
           }}
         ></textarea>
-        <button className='btn btn-primary my-3' onClick={handleUpClick}>
+        <button
+          disabled={textArea.length === 0}
+          className='btn btn-primary my-3'
+          onClick={handleUpClick}
+        >
           Convert to uppercase
         </button>
-        <button className='btn btn-primary m-3' onClick={handleLowClick}>
+        <button
+          disabled={textArea.length === 0}
+          className='btn btn-primary m-3'
+          onClick={handleLowClick}
+        >
           Covert to LowerCase
         </button>
         <button className='btn btn-danger m-3' onClick={handleReset}>

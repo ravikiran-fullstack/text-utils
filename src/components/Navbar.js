@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ title, mode, toggleMode }) => {
   return (
@@ -10,9 +10,9 @@ const Navbar = ({ title, mode, toggleMode }) => {
       } bg-${mode ? "dark" : "light"}`}
     >
       <div className='container-fluid'>
-        <Link className='navbar-brand' to='/'>
+        <NavLink className='navbar-brand' to='/'>
           {title}
-        </Link>
+        </NavLink>
         <button
           className='navbar-toggler'
           type='button'
@@ -27,14 +27,23 @@ const Navbar = ({ title, mode, toggleMode }) => {
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link active' aria-current='page' to='/'>
+              <NavLink
+                className='nav-link'
+                aria-current='page'
+                to='/'
+                activeClassName='active'
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/about'>
+              <NavLink
+                className='nav-link'
+                to='/about'
+                activeClassName='active'
+              >
                 About
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <form className='d-flex'>
@@ -44,27 +53,6 @@ const Navbar = ({ title, mode, toggleMode }) => {
               placeholder='Search'
               aria-label='Search'
             /> */}
-            <button
-              className='btn btn-danger'
-              style={{ marginRight: "5px" }}
-              type='button'
-            >
-              Red Theme
-            </button>
-            <button
-              className='btn btn-primary'
-              style={{ marginRight: "5px" }}
-              type='button'
-            >
-              Blue Theme
-            </button>
-            <button
-              className='btn btn-success'
-              style={{ marginRight: "5px" }}
-              type='button'
-            >
-              Green Theme
-            </button>
           </form>
 
           <div

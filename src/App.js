@@ -54,7 +54,7 @@ function App() {
 
             <Route exact path='/'>
               <TextForm
-                heading='Enter the text to analyze'
+                heading='Text Utilities - Word counter, Character Counter, Remove Extra spaces'
                 textArea={textArea}
                 setTextArea={setTextArea}
                 mode={darkMode}
